@@ -9,10 +9,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/global.css">
     <link rel="shortcut icon" href="src/img/logo-cortada.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>On Grace | Uma casa para você</title>
 </head>
-<body>
-    
+<body class="bg-[#f3eee7]">
+
+<header class="fixed w-full top-0 z-50 bg-[#000000] border-b border-gray-800">
+        <nav class="container mx-auto px-4 py-5">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center">
+    <img src="src/img/logo.PNG" alt="logo on grace" class="h-8 md:h-12 w-auto">
+</a>    
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors py-2">Início</a>
+                    <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors py-2">Sobre</a>
+                    <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors py-2">Ministérios</a>
+                    <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors py-2">Eventos</a>
+                    <a href="#" class="text-[#000000] bg-white hover:bg-gray-200 transition-colors px-6 py-2 rounded-full font-medium cursor-pointer">
+                        Ofertar
+                    </a>
+                </div>
+
+                <button class="md:hidden text-white focus:outline-none golden-gradient p-2 rounded-lg cursor-pointer" id="menuButton">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="flex flex-col space-y-4 mt-6 pb-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-gray-800">Início</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-gray-800">Sobre</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-gray-800">Ministérios</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-gray-800">Eventos</a>
+                    <a href="#" class="text-center text-[#000000] bg-white hover:bg-gray-200 transition-colors px-6 py-2 rounded-full font-medium cursor-pointer">
+                        Ofertar
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 <script src="src/js/app.js"></script>
 </body>
