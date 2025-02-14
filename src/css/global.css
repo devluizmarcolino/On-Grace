@@ -22,3 +22,9 @@
 .golden-gradient {
     background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
 }
+
+@media (max-width: 360px) {
+    #floatingMenu {
+        width: 98%;
+    }
+}

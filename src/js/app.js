@@ -1,14 +1,36 @@
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenuContent = document.getElementById("mobileMenuContent");
+  const menuIcon = mobileMenuBtn.querySelector("i");
 
-menuButton.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-  const icon = menuButton.querySelector("i");
-  if (mobileMenu.classList.contains("hidden")) {
-    icon.classList.remove("ri-close-line");
-    icon.classList.add("ri-menu-line");
-  } else {
-    icon.classList.remove("ri-menu-line");
-    icon.classList.add("ri-close-line");
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    menuIcon.className = isMenuOpen
+      ? "ri-close-line text-xl"
+      : "ri-menu-line text-xl";
+
+    mobileMenuContent.style.opacity = isMenuOpen ? "1" : "0";
+    mobileMenuContent.style.transform = isMenuOpen
+      ? "translateY(0)"
+      : "translateY(-8px)";
+    mobileMenuContent.style.pointerEvents = isMenuOpen ? "auto" : "none";
   }
+
+  mobileMenuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  document.addEventListener("click", function (e) {
+    if (
+      isMenuOpen &&
+      !mobileMenuContent.contains(e.target) &&
+      !mobileMenuBtn.contains(e.target)
+    ) {
+      toggleMenu();
+    }
+  });
 });
