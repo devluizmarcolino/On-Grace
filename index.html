@@ -19,8 +19,8 @@
         <div class="hidden md:flex items-center justify-between px-8 py-3">
             <img src="src/img/logo.PNG" alt="Logo" class="h-8 w-auto mr-8">
             <div class="flex items-center space-x-8">
-                <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Início</a>
-                <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Sobre</a>
+                <a href="#home" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Início</a>
+                <a href="#sobre" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Sobre</a>
                 <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Ministérios</a>
                 <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Eventos</a>
                 <a href="#" class="bg-white text-black hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-all hover:scale-105">
@@ -53,7 +53,7 @@
 </header>
 
 <main>
-<section class="relative h-screen w-full overflow-hidden">
+<section class="relative h-screen w-full overflow-hidden" id="home">
         <div class="absolute inset-0 gradient-overlay z-[1]"></div>
 
         <div class="carousel relative w-full h-full" id="carousel">
@@ -136,6 +136,52 @@
                 <div class="text-center">
                     <div class="text-6xl font-bold mb-4" id="countdown">00:00:00</div>
                     <p class="text-gray-600">até o próximo culto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 px-4 bg-[#f3eee7]" id="sobre">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 relative">
+            <span class="relative z-10">Nossa Igreja</span>
+            <div class="absolute w-12 h-1 bg-black bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="space-y-5">
+                <h3 class="text-2xl font-semibold">Bem-vindo à On Grace</h3>
+                <p class="text-gray-700">
+                    Somos uma família de fé, unidos pelo amor e pela graça de Cristo. Aqui, cada coração encontra acolhimento, cada vida é transformada pela Palavra e cada passo nos leva mais perto do propósito de Deus.
+                </p>
+                <p class="text-gray-700">
+                    Venha viver essa jornada conosco e descubra seu lugar no Reino!
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="flex items-center gap-2">
+                        <i class="ri-check-line text-xl text-green-600"></i>
+                        <span class="font-medium">Comunidade acolhedora</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="ri-check-line text-xl text-green-600"></i>
+                        <span class="font-medium">Ensino bíblico sólido</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="ri-check-line text-xl text-green-600"></i>
+                        <span class="font-medium">Ministérios para todas as idades</span>
+                    </div>
+                </div>
+                <button class="mt-6 bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105">
+                    Conheça Nossa História
+                </button>
+            </div>
+
+            <div class="relative rounded-3xl overflow-hidden shadow-xl h-[500px] group">
+                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                <img src="src/img/img4.jpg" alt="membros da igreja cultuando" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent pt-20 pb-5 px-6 text-white z-20">
+                    <p class="text-sm text-gray-200 mt-2">Venha adorar conosco e sinta a presença de Deus</p>
                 </div>
             </div>
         </div>
