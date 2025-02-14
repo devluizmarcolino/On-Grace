@@ -52,6 +52,97 @@
     </div>
 </header>
 
+<main>
+<section class="relative h-screen w-full overflow-hidden">
+        <div class="absolute inset-0 gradient-overlay z-[1]"></div>
+
+        <div class="carousel relative w-full h-full" id="carousel">
+            <div class="carousel-slide active">
+                <img src="src/img/img1.jpg" alt="Igreja 1" class="absolute top-0 left-0 w-full h-full object-cover">
+            </div>
+            <div class="carousel-slide">
+                <img src="src/img/img2.jpg" alt="Igreja 2" class="absolute top-0 left-0 w-full h-full object-cover">
+            </div>
+            <div class="carousel-slide">
+                <img src="src/img/img3.jpg" alt="Igreja 3" class="absolute top-0 left-0 w-full h-full object-cover">
+            </div>
+        </div>
+        
+        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2]" id="prevBtn">
+            <i class="ri-arrow-left-s-line text-4xl"></i>
+        </button>
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2]" id="nextBtn">
+            <i class="ri-arrow-right-s-line text-4xl"></i>
+        </button>
+
+        <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-[2]" id="indicators">
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator active"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator"></button>
+        </div>
+        
+        <div class="absolute inset-0 z-20 flex items-center justify-center px-4">
+            <div class="text-center max-w-sm md:max-w-md space-y-4">
+                <h1 class="text-2xl md:text-4xl font-bold text-white leading-tight">
+                    Encontre o seu lugar.
+                </h1>
+                
+                <p class="text-base text-gray-100 mx-auto font-light">
+                    Uma casa para você!
+                </p>
+                
+                <div class="flex flex-col gap-2 pt-2">
+                    <button class="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all">
+                        Horários dos Cultos
+                    </button>
+                    <button class="bg-transparent border border-white text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-all">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-[2]">
+            <i class="ri-arrow-down-line text-3xl"></i>
+        </div>
+</section>
+
+<section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-8 md:p-12">
+                <h2 class="text-3xl font-bold mb-6">Próximo Culto</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i class="ri-calendar-line text-2xl text-gray-600"></i>
+                        <div>
+                            <p class="font-semibold" id="proximo-dia"></p>
+                            <p class="text-gray-600" id="tipo-culto"></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="ri-map-pin-line text-2xl text-gray-600"></i>
+                        <div>
+                            <p class="font-semibold">Endereço da Igreja</p>
+                            <p class="text-gray-600">Rua Educador Marcos Antônio da Silva , 75 Cajá, Vitória de Santo Antão, PE.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="mt-8 bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105">
+                    Como Chegar
+                </button>
+            </div>
+            <div class="bg-gray-100 p-8 md:p-12 flex items-center justify-center">
+                <div class="text-center">
+                    <div class="text-6xl font-bold mb-4" id="countdown">00:00:00</div>
+                    <p class="text-gray-600">até o próximo culto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
 
 <script src="src/js/app.js"></script>
 </body>
