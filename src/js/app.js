@@ -163,3 +163,59 @@ function atualizarCountdown() {
 }
 
 document.addEventListener("DOMContentLoaded", atualizarCountdown);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popupComoChegar');
+    const botaoFechar = document.getElementById('fecharPopup');
+    const videoFrame = document.getElementById('videoComoChegar');
+    
+    const videoUrl =
+      "https://www.youtube.com/embed/sassasas";
+    
+    function abrirPopup() {
+        videoFrame.src = videoUrl;
+        popup.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function fecharPopup() {
+        popup.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            videoFrame.src = ''; 
+        }, 300);
+        document.body.style.overflow = '';
+    }
+    
+    const botoesComoChegar = Array.from(document.querySelectorAll('button')).filter(botao => {
+        return botao.textContent.trim() === 'Como Chegar';
+    });
+    
+    if (botoesComoChegar.length > 0) {
+        botoesComoChegar.forEach(botao => {
+            botao.addEventListener('click', abrirPopup);
+        });
+    } else {
+        console.error('Botão "Como Chegar" não encontrado');
+    }
+    
+    if (botaoFechar) {
+        botaoFechar.addEventListener('click', fecharPopup);
+    } else {
+        console.error('Botão de fechar popup não encontrado');
+    }
+    
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            fecharPopup();
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !popup.classList.contains('opacity-0')) {
+            fecharPopup();
+        }
+    });
+        
+
+    console.log(`Encontrados ${botoesComoChegar.length} botões "Como Chegar"`);
+});
