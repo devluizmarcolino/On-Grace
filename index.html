@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="src/css/global.css">
     <link rel="shortcut icon" href="src/img/logo-cortada.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <title>On Grace | Uma casa para você</title>
 </head>
 <body class="bg-[#f3eee7]">
@@ -309,7 +310,102 @@
     </div>
 </section>
 
+<section class="py-16 px-4 bg-[#f3eee7]">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 relative">
+            <span class="relative z-10">Horários dos Culto</span>
+            <div class="absolute w-12 h-1 bg-black bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/img6.jpg" alt="Culto de Domingo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Domingo
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="ri-time-line text-2xl text-gray-600"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Culto Evangelístico</h3>
+                            <p class="text-gray-600">Todo domingo às 18h</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Venha celebrar conosco em nosso culto dominical, um momento especial de adoração, palavra e comunhão.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Como Chegar
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/img5.jpg" alt="Culto de Quarta" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Quarta
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="ri-time-line text-2xl text-gray-600"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Culto de estudos doutrinários</h3>
+                            <p class="text-gray-600">Toda quarta às 19h30</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Participe do nosso culto de meio de semana, um momento dedicado ao ensino da palavra e crescimento espiritual.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Como Chegar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-700 mb-6 max-w-2xl mx-auto">Junte-se a nós em nossos cultos semanais e experimente a presença transformadora de Deus!</p>
+            <button class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105" data-share-horarios>
+    Compartilhar Horários
+            </button>
+        </div>
+    </div>
+</section>
+
 </main>
+
+<div id="horarios-compartilhar" class="fixed -left-full top-0 z-[-1]">
+        <div class="w-[600px] h-[400px] bg-white p-8 rounded-xl" style="font-family: 'Poppins', sans-serif;">
+            <div class="h-full flex flex-col items-center justify-between bg-[url('/api/placeholder/600/400')] bg-cover bg-center relative rounded-lg overflow-hidden">
+            <div class="absolute inset-0 bg-black/60"></div>
+            
+            <div class="relative z-10 text-center pt-8">
+                <img src="src/img/logo.PNG" alt="Logo" class="h-12 w-auto mx-auto mb-4">
+                <h2 class="text-2xl font-bold text-white mb-2">Horários dos Cultos</h2>
+                <p class="text-gray-300">Uma casa para você!</p>
+            </div>
+            
+            <div class="relative z-10 space-y-6 text-center pb-8">
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white">Domingo - 18h</h3>
+                    <p class="text-gray-300">Culto Evangelístico</p>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white">Quarta - 19h30</h3>
+                    <p class="text-gray-300">Culto de Estudos Doutrinários</p>
+                </div>
+                
+                <div class="text-sm text-gray-300 mt-4">
+                    <p>Rua Educador Marcos Antônio da Silva, 75</p>
+                    <p>Cajá, Vitória de Santo Antão, PE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="popupComoChegar" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300">
   <div class="relative w-[95%] max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
