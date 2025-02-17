@@ -21,7 +21,7 @@
             <div class="flex items-center space-x-8">
                 <a href="#home" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Início</a>
                 <a href="#sobre" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Sobre</a>
-                <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Ministérios</a>
+                <a href="#ministerios" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Ministérios</a>
                 <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Eventos</a>
                 <a href="#" class="bg-white text-black hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-all hover:scale-105">
                     Ofertar
@@ -40,9 +40,9 @@
     <div class="md:hidden transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none" id="mobileMenuContent">
         <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-4">
             <div class="flex flex-col space-y-4 px-5">
-                <a href="#" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Início</a>
-                <a href="#" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Sobre</a>
-                <a href="#" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Ministérios</a>
+                <a href="#home" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Início</a>
+                <a href="#sobre" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Sobre</a>
+                <a href="#ministerios" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Ministérios</a>
                 <a href="#" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Eventos</a>
                 <a href="#" class="text-center bg-white text-black hover:bg-gray-100 px-5 py-2 rounded-full text-sm font-medium">
                     Ofertar
@@ -185,6 +185,126 @@
                     <p class="text-sm text-gray-200 mt-2">Venha adorar conosco e sinta a presença de Deus</p>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 px-4 bg-[#f3eee7]" id="ministerios">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 relative">
+            <span class="relative z-10">Nossos Ministérios</span>
+            <div class="absolute w-12 h-1 bg-black bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/midia.jpg" alt="Ministério de Mídia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Mídia
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Ministério de Mídia</h3>
+                    <p class="text-gray-600 mb-4">Utilizamos a tecnologia e criatividade para expandir o alcance da palavra de Deus através das redes sociais, transmissões ao vivo e conteúdo digital.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/sejahomem.jpeg" alt="Ministério Seja Homem" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Homens
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Seja Homem</h3>
+                    <p class="text-gray-600 mb-4">Um espaço dedicado aos homens, com encontros que promovem fé, comunhão e crescimento espiritual, fortalecendo o papel masculino na família e sociedade.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/transborde.jpg" alt="Ministério Transborde" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Mulheres
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Transborde</h3>
+                    <p class="text-gray-600 mb-4">Um ministério para mulheres que desejam crescer na fé, desenvolver relacionamentos significativos e impactar suas famílias e comunidades com o amor de Cristo.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/recepcao.jpg" alt="Ministério de Recepção" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Recepção
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Ministério de Recepção</h3>
+                    <p class="text-gray-600 mb-4">Somos a primeira impressão da igreja! Nossa equipe acolhe com amor, dedicação e alegria todos os que chegam, fazendo com que se sintam parte da família.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/louvor.jpg" alt="Ministério de Som/Louvor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Som/Louvor
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Ministério de Som/Louvor</h3>
+                    <p class="text-gray-600 mb-4">Através da música, conduzimos a igreja à adoração, criando uma atmosfera propícia para o encontro com Deus e a manifestação de Sua presença.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="src/img/kids.jpg" alt="Sala Kids" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all"></div>
+                    <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Kids
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">Sala Kids</h3>
+                    <p class="text-gray-600 mb-4">Um espaço divertido e seguro onde as crianças aprendem sobre Deus de forma criativa e adequada à idade, construindo bases sólidas para a vida cristã.</p>
+                    <button class="mt-2 bg-transparent border border-black text-black hover:bg-black hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-700 mb-6 max-w-2xl mx-auto">Deus tem um chamado para você. Descubra seus dons e talentos servindo em um de nossos ministérios!</p>
+            <button class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105">
+                Participe de um Ministério
+            </button>
         </div>
     </div>
 </section>
