@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="shortcut icon" href="src/img/logo-cortada.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>On Grace | Ofertas</title>
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#f3eee7]">
+
+<header class="fixed left-1/2 top-6 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] md:w-auto" id="floatingMenu">
+    <nav class="bg-black/90 backdrop-blur-md rounded-full border border-gray-800 shadow-xl">
+        <div class="hidden md:flex items-center justify-between px-8 py-3">
+            <img src="src/img/logo.PNG" alt="Logo" class="h-8 w-auto mr-8">
+            <div class="flex items-center space-x-8">
+                <a href="index.html#home" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Início</a>
+                <a href="index.html#sobre" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Sobre</a>
+                <a href="index.html#ministerios" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Ministérios</a>
+                <a href="#" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Eventos</a>
+                <a href="ofertar.html" class="bg-white text-black hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-all hover:scale-105">
+                    Ofertar
+                </a>
+            </div>
+        </div>
+
+        <div class="md:hidden flex items-center justify-between px-5 py-2">
+            <img src="src/img/logo.PNG" alt="Logo" class="h-6 w-auto">
+            <button class="text-white focus:outline-none" id="mobileMenuBtn">
+                <i class="ri-menu-line text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="md:hidden transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none" id="mobileMenuContent">
+        <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-4">
+            <div class="flex flex-col space-y-4 px-5">
+                <a href="index.html#home" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Início</a>
+                <a href="index.html#sobre" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Sobre</a>
+                <a href="index.html#ministerios" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Ministérios</a>
+                <a href="#" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Eventos</a>
+                <a href="oferta.html" class="text-center bg-white text-black hover:bg-gray-100 px-5 py-2 rounded-full text-sm font-medium">
+                    Ofertar
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="src/img/oferta.jpg" alt="Ofertas" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/70"></div>
+        </div>
+        
+        <div class="relative z-10 px-4 max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Sua oferta transforma vidas</h1>
+            <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+                "Cada um contribua segundo propôs no seu coração; não com tristeza, nem por constrangimento; porque Deus ama quem dá com alegria." 
+                <span class="block mt-2 italic font-light">2 Coríntios 9:7</span>
+            </p>
+            <a href="#oferta" class="inline-block bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg text-center">
+                Ofertar Agora
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-[#f3eee7]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="relative z-10">Por que Ofertar?</span>
+                <div class="absolute w-12 h-1 bg-black bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold">O significado bíblico da oferta</h3>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-700 leading-relaxed">
+                            Na Bíblia, ofertar vai muito além de simplesmente dar dinheiro. É um ato de adoração e gratidão a Deus, reconhecendo que tudo o que temos vem dele e pertence a ele. 
+                        </p>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-md">
+                            <p class="italic text-gray-700">"Trazei todos os dízimos à casa do tesouro, para que haja mantimento na minha casa; e provai-me nisto, diz o Senhor dos Exércitos, se eu não vos abrir as janelas do céu e não derramar sobre vós uma bênção tal, que dela vos advenha a maior abastança."</p>
+                            <p class="mt-2 font-medium text-right">Malaquias 3:10</p>
+                        </div>
+                        
+                        <p class="text-gray-700 leading-relaxed">
+                            Quando ofertamos com um coração generoso, participamos da obra de Deus no mundo. Jesus nos ensinou que "é mais bem-aventurado dar do que receber" (Atos 20:35), revelando o princípio espiritual que há maior alegria em dar do que em receber.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+                    <img src="src/img/" alt="Bíblia" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent pt-20 pb-6 px-6">
+                        <p class="text-white text-lg font-medium">Cada oferta é um ato de adoração</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="relative z-10">Para Onde Vai Sua Oferta</span>
+                <div class="absolute w-12 h-1 bg-black bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+            </h2>
+
+            <p class="text-gray-700 text-center max-w-3xl mx-auto mb-12">
+                Temos o compromisso com a transparência total. Cada centavo ofertado é destinado exclusivamente para o avanço da obra de Deus e o cumprimento da nossa missão.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-[#f3eee7] rounded-xl p-6 transition-all hover:shadow-xl">
+                    <div class="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
+                        <i class="ri-building-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Manutenção do Templo</h3>
+                    <p class="text-gray-700">
+                        Conservação e melhorias no espaço físico da igreja, garantindo um ambiente seguro e acolhedor para todos que vêm adorar.
+                    </p>
+                </div>
+
+                <div class="bg-[#f3eee7] rounded-xl p-6 transition-all hover:shadow-xl">
+                    <div class="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
+                        <i class="ri-heart-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ação Social</h3>
+                    <p class="text-gray-700">
+                        Projetos de assistência às famílias em situação de vulnerabilidade em nossa comunidade, levando amor e esperança em forma de ações práticas.
+                    </p>
+                </div>
+
+                <div class="bg-[#f3eee7] rounded-xl p-6 transition-all hover:shadow-xl">
+                    <div class="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
+                        <i class="ri-team-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ministérios</h3>
+                    <p class="text-gray-700">
+                        Fortalecimento dos ministérios da igreja, como louvor, kids, jovens e famílias, proporcionando recursos para seu desenvolvimento.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-700 max-w-3xl mx-auto mb-8">
+                    Anualmente, disponibilizamos para toda a igreja um relatório detalhado da aplicação dos recursos, garantindo total transparência na gestão financeira.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-black font-medium hover:underline">
+                    Ver relatório financeiro do último ano
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-black text-white" id="oferta">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 relative">
+                <span class="relative z-10">Como Ofertar</span>
+                <div class="absolute w-12 h-1 bg-white bottom-0 left-1/2 transform -translate-x-1/2 -mb-2"></div>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 transition-all hover:bg-white/15">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-bank-card-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">PIX</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        A maneira mais rápida e segura para suas ofertas, disponível 24 horas.
+                    </p>
+                    <div class="bg-white/10 p-4 rounded-lg text-center">
+                        <p class="text-sm text-gray-300 mb-2">Chave PIX (CNPJ):</p>
+                        <p class="text-white font-semibold mb-2" id="pix-key">41.176.668/0001-71</p>
+                        <button class="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-gray-200 copy-btn" data-copy="pix-key" data-success-text="Copiado!">
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 transition-all hover:bg-white/15">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-secure-payment-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Transferência Bancária</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Realize transferências dos principais bancos para nossa conta.
+                    </p>
+                    <div class="bg-white/10 p-4 rounded-lg text-center">
+                        <p class="text-sm text-gray-300 mb-1">Banco: 403 - CORA SCD</p>
+                        <p class="text-sm text-gray-300 mb-1">Agência: 0001</p>
+                        <p class="text-sm text-gray-300 mb-1">Conta: 1215316-2</p>
+                        <p class="text-sm text-gray-300 mb-2">CNPJ: 41.176.668/0001-71</p>
+                        <button class="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-gray-200 copy-btn" data-copy="bank-info" data-success-text="Copiado!">
+                            Copiar
+                        </button>
+                        <div class="hidden" id="bank-info">
+                            Banco: 403 - CORA SCD
+                            Agência: 0001
+                            Conta: 1215316-2
+                            CNPJ: 41.176.668/0001-71
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 transition-all hover:bg-white/15">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="ri-building-4-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Presencialmente</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Durante os cultos, você pode entregar sua oferta nos gazofilácios.
+                    </p>
+                    <div class="bg-white/10 p-4 rounded-lg text-center">
+                        <p class="text-sm text-gray-300 mb-2">Endereço da Igreja:</p>
+                        <p class="text-white font-medium mb-2" id="address">Rua Educador Marcos Antônio da Silva, 75 Cajá, Vitória de Santo Antão, PE</p>
+                        <button class="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-gray-200 copy-btn" data-copy="address" data-success-text="Copiado!">
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuContent = document.getElementById('mobileMenuContent');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenuContent.classList.contains('opacity-0')) {
+            mobileMenuContent.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+            mobileMenuContent.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            mobileMenuBtn.innerHTML = '<i class="ri-close-line text-xl"></i>';
+        } else {
+            mobileMenuContent.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            mobileMenuContent.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+            mobileMenuBtn.innerHTML = '<i class="ri-menu-line text-xl"></i>';
+        }
+    });
+    
+    const header = document.getElementById('floatingMenu');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('top-4', 'w-[90%]');
+            header.classList.remove('top-6', 'w-[95%]');
+        } else {
+            header.classList.add('top-6', 'w-[95%]');
+            header.classList.remove('top-4', 'w-[90%]');
+        }
+    });
+    
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-copy');
+            const element = document.getElementById(targetId);
+            const originalText = button.textContent;
+            const successText = button.getAttribute('data-success-text');
+            
+            let textToCopy = '';
+            
+            if (element.tagName === 'DIV' && element.classList.contains('hidden')) {
+                textToCopy = element.innerText;
+            } else {
+                textToCopy = element.innerText;
+            }
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            button.textContent = successText;
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+                    });
+                });
+            </script>
+        </body>
+        </html>
