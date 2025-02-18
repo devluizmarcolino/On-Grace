@@ -220,110 +220,99 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Encontrados ${botoesComoChegar.length} botões "Como Chegar"`);
 });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const shareButton = document.querySelector("[data-share-horarios]");
-        const horariosElement = document.getElementById("horarios-compartilhar");
+document.addEventListener("DOMContentLoaded", function () {
+  const shareButton = document.querySelector("[data-share-horarios]");
+  const horariosElement = document.getElementById("horarios-compartilhar");
 
-        if (!shareButton || !horariosElement) {
-            console.error("Elementos não encontrados");
-            return;
-        }
+  if (!shareButton || !horariosElement) {
+    console.error("Elementos não encontrados");
+    return;
+  }
 
-        async function shareHorarios() {
-            try {
-                const tempDiv = document.createElement('div');
-                tempDiv.style.position = 'fixed';
-                tempDiv.style.top = '0';
-                tempDiv.style.left = '0';
-                tempDiv.style.zIndex = '-9999';
-                tempDiv.style.width = '600px';
-                tempDiv.style.height = '400px';
-                tempDiv.innerHTML = `
-                    <div class="w-[600px] h-[400px] bg-white p-8 rounded-xl" style="font-family: 'Poppins', sans-serif; background-color: #FFFFFF;">
-                        <div class="h-full flex flex-col items-center justify-between relative rounded-lg overflow-hidden" style="background-color: #000000;">
-                            <div style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.6);"></div>
-                            
-                            <div style="position: relative; z-index: 10; text-align: center; padding-top: 2rem;">
-                                <img src="src/img/logo.PNG" alt="Logo" style="height: 48px; width: auto; margin: 0 auto 1rem;">
-                                <h2 style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Horários dos Cultos</h2>
-                                <p style="color: #D1D5DB;">Uma casa para você!</p>
+  async function shareHorarios() {
+    try {
+      const tempDiv = document.createElement("div");
+      tempDiv.style.position = "fixed";
+      tempDiv.style.top = "0";
+      tempDiv.style.left = "0";
+      tempDiv.style.zIndex = "-9999";
+      tempDiv.style.width = "600px";
+      tempDiv.style.height = "400px";
+      tempDiv.innerHTML = `
+                <div class="w-[600px] h-[400px] bg-white p-8 rounded-xl" style="font-family: 'Poppins', sans-serif; background-color: #FFFFFF;">
+                    <div class="h-full flex flex-col items-center justify-between relative rounded-lg overflow-hidden" style="background-color: #000000;">
+                        <div style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.6);"></div>
+                        
+                        <div style="position: relative; z-index: 10; text-align: center; padding-top: 2rem;">
+                            <h2 style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Horários dos Cultos</h2>
+                            <p style="color: #D1D5DB;">Uma casa para você!</p>
+                        </div>
+                        
+                        <div style="position: relative; z-index: 10; text-align: center; padding-bottom: 2rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Domingo - 18h</h3>
+                                <p style="color: #D1D5DB;">Culto Evangelístico</p>
                             </div>
                             
-                            <div style="position: relative; z-index: 10; text-align: center; padding-bottom: 2rem;">
-                                <div style="margin-bottom: 1.5rem;">
-                                    <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Domingo - 18h</h3>
-                                    <p style="color: #D1D5DB;">Culto Evangelístico</p>
-                                </div>
-                                
-                                <div style="margin-bottom: 1.5rem;">
-                                    <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Quarta - 19h30</h3>
-                                    <p style="color: #D1D5DB;">Culto de Estudos Doutrinários</p>
-                                </div>
-                                
-                                <div style="font-size: 14px; color: #D1D5DB; margin-top: 1rem;">
-                                    <p>Rua Educador Marcos Antônio da Silva, 75</p>
-                                    <p>Cajá, Vitória de Santo Antão, PE</p>
-                                </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Quarta - 19h30</h3>
+                                <p style="color: #D1D5DB;">Culto de Estudos Doutrinários</p>
+                            </div>
+                            
+                            <div style="font-size: 14px; color: #D1D5DB; margin-top: 1rem;">
+                                <p>Rua Educador Marcos Antônio da Silva, 75</p>
+                                <p>Cajá, Vitória de Santo Antão, PE</p>
                             </div>
                         </div>
                     </div>
-                `;
+                </div>
+            `;
 
-                document.body.appendChild(tempDiv);
+      document.body.appendChild(tempDiv);
 
-                // Aguardar carregamento da imagem
-                const logoImg = tempDiv.querySelector('img');
-                await new Promise((resolve) => {
-                    if (logoImg.complete) {
-                        resolve();
-                    } else {
-                        logoImg.onload = resolve;
-                        logoImg.onerror = resolve;
-                    }
-                });
+      await new Promise((resolve) => setTimeout(resolve, 100));
 
-                await new Promise(resolve => setTimeout(resolve, 100));
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        logging: false,
+        backgroundColor: "#FFFFFF",
+      });
 
-                const canvas = await html2canvas(tempDiv, {
-                    scale: 2,
-                    logging: true,
-                    useCORS: true,
-                    backgroundColor: '#FFFFFF'
-                });
+      const blob = await new Promise((resolve) =>
+        canvas.toBlob(resolve, "image/png", 1.0)
+      );
 
-                const blob = await new Promise((resolve) => 
-                    canvas.toBlob(resolve, 'image/png', 1.0)
-                );
+      if (!blob) {
+        throw new Error("Falha ao gerar imagem");
+      }
 
-                if (!blob) {
-                    throw new Error("Falha ao gerar imagem");
-                }
+      const file = new File([blob], "horarios-ongrace.png", {
+        type: "image/png",
+      });
 
-                const file = new File([blob], "horarios-ongrace.png", {
-                    type: "image/png"
-                });
+      if (navigator.share && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: "Horários dos Cultos - On Grace",
+          text: "Confira os horários dos nossos cultos!",
+          files: [file],
+        });
+      } else {
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "horarios-ongrace.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
 
-                if (navigator.share && navigator.canShare({ files: [file] })) {
-                    await navigator.share({
-                        title: "Horários dos Cultos - On Grace",
-                        text: "Confira os horários dos nossos cultos!",
-                        files: [file]
-                    });
-                } else {
-                    const link = document.createElement("a");
-                    link.href = canvas.toDataURL("image/png");
-                    link.download = "horarios-ongrace.png";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }
+      document.body.removeChild(tempDiv);
+    } catch (error) {
+      console.error("Erro ao compartilhar:", error);
+      alert(
+        "Não foi possível compartilhar os horários. Por favor, tente novamente."
+      );
+    }
+  }
 
-                document.body.removeChild(tempDiv);
-            } catch (error) {
-                console.error("Erro detalhado:", error);
-                alert(`Erro ao compartilhar: ${error.message || 'Erro desconhecido'}`);
-            }
-        }
-
-        shareButton.addEventListener("click", shareHorarios);
-    });
+  shareButton.addEventListener("click", shareHorarios);
+});
