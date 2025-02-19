@@ -317,7 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
   shareButton.addEventListener("click", shareHorarios);
 });
 
-// Função para gerenciar carrossel dos GCs
 function initCarouselGC(carouselClass) {
     const carousel = document.querySelector(carouselClass);
     if (!carousel) return;
@@ -325,7 +324,6 @@ function initCarouselGC(carouselClass) {
     const slides = carousel.querySelectorAll('.carousel-slide-gc');
     let currentSlide = 0;
     
-    // Função para mostrar o slide atual
     function showSlide(index) {
         slides.forEach((slide, i) => {
             if (i === index) {
@@ -340,19 +338,16 @@ function initCarouselGC(carouselClass) {
         });
     }
 
-    // Função para ir para o próximo slide
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
     }
 
-    // Função para ir para o slide anterior
     function previousSlide() {
         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         showSlide(currentSlide);
     }
 
-    // Adicionar botões de navegação
     const prevButton = document.createElement('button');
     prevButton.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full';
     prevButton.innerHTML = '<i class="ri-arrow-left-s-line text-xl"></i>';
@@ -363,11 +358,9 @@ function initCarouselGC(carouselClass) {
     nextButton.innerHTML = '<i class="ri-arrow-right-s-line text-xl"></i>';
     carousel.appendChild(nextButton);
 
-    // Adicionar event listeners
     prevButton.addEventListener('click', previousSlide);
     nextButton.addEventListener('click', nextSlide);
 
-    // Adicionar navegação por toque
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -384,10 +377,8 @@ function initCarouselGC(carouselClass) {
         }
     });
 
-    // Adicionar troca automática de slides
     let autoplayInterval = setInterval(nextSlide, 5000);
 
-    // Parar troca automática quando o mouse estiver sobre o carrossel
     carousel.addEventListener('mouseenter', () => {
         clearInterval(autoplayInterval);
     });
@@ -396,7 +387,6 @@ function initCarouselGC(carouselClass) {
         autoplayInterval = setInterval(nextSlide, 5000);
     });
 
-    // Estilos iniciais
     slides.forEach((slide, index) => {
         if (index === 0) {
             slide.style.opacity = '1';
@@ -414,16 +404,11 @@ function initCarouselGC(carouselClass) {
     });
 }
 
-// Inicializar os carrosséis quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar carrossel do GC Em Obras
     initCarouselGC('.carousel-gc-obras');
-    
-    // Inicializar carrossel do GC Casais
-    initCarouselGC('.carousel-gc-casais');
+        initCarouselGC('.carousel-gc-casais');
 });
 
-// Adicionar estilos CSS necessários
 const styleGC = document.createElement('style');
 styleGC.textContent = `
     .carousel-slide-gc {
