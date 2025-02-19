@@ -316,3 +316,122 @@ document.addEventListener("DOMContentLoaded", function () {
 
   shareButton.addEventListener("click", shareHorarios);
 });
+
+// Função para gerenciar carrossel dos GCs
+function initCarouselGC(carouselClass) {
+    const carousel = document.querySelector(carouselClass);
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide-gc');
+    let currentSlide = 0;
+    
+    // Função para mostrar o slide atual
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+                slide.style.opacity = '1';
+                slide.style.transform = 'translateX(0)';
+            } else {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+                slide.style.transform = 'translateX(100%)';
+            }
+        });
+    }
+
+    // Função para ir para o próximo slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Função para ir para o slide anterior
+    function previousSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Adicionar botões de navegação
+    const prevButton = document.createElement('button');
+    prevButton.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full';
+    prevButton.innerHTML = '<i class="ri-arrow-left-s-line text-xl"></i>';
+    carousel.appendChild(prevButton);
+
+    const nextButton = document.createElement('button');
+    nextButton.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full';
+    nextButton.innerHTML = '<i class="ri-arrow-right-s-line text-xl"></i>';
+    carousel.appendChild(nextButton);
+
+    // Adicionar event listeners
+    prevButton.addEventListener('click', previousSlide);
+    nextButton.addEventListener('click', nextSlide);
+
+    // Adicionar navegação por toque
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+            nextSlide();
+        } else if (touchEndX - touchStartX > 50) {
+            previousSlide();
+        }
+    });
+
+    // Adicionar troca automática de slides
+    let autoplayInterval = setInterval(nextSlide, 5000);
+
+    // Parar troca automática quando o mouse estiver sobre o carrossel
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    });
+
+    // Estilos iniciais
+    slides.forEach((slide, index) => {
+        if (index === 0) {
+            slide.style.opacity = '1';
+            slide.style.transform = 'translateX(0)';
+        } else {
+            slide.style.opacity = '0';
+            slide.style.transform = 'translateX(100%)';
+        }
+        slide.style.transition = 'all 0.5s ease';
+        slide.style.position = 'absolute';
+        slide.style.top = '0';
+        slide.style.left = '0';
+        slide.style.width = '100%';
+        slide.style.height = '100%';
+    });
+}
+
+// Inicializar os carrosséis quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar carrossel do GC Em Obras
+    initCarouselGC('.carousel-gc-obras');
+    
+    // Inicializar carrossel do GC Casais
+    initCarouselGC('.carousel-gc-casais');
+});
+
+// Adicionar estilos CSS necessários
+const styleGC = document.createElement('style');
+styleGC.textContent = `
+    .carousel-slide-gc {
+        display: none;
+    }
+    
+    .carousel-slide-gc.active {
+        display: block;
+    }
+`;
+document.head.appendChild(styleGC);

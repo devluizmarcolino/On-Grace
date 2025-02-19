@@ -49,3 +49,17 @@
     background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
     z-index: 2;
 }
+
+.carousel-gc {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide-gc {
+    min-width: 100%;
+    display: none;
+}
+
+.carousel-slide-gc.active {
+    display: block;
+}
