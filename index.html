@@ -28,9 +28,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     
     <script defer src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
+        
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,7 +45,7 @@
 </head>
 <body class="bg-[#f3eee7]">
 
-<header class="fixed left-0 top-0 w-full z-[9999] transition-all duration-300 px-4 py-2" id="floatingMenu">
+<header class="fixed left-0 top-0 w-full z-50 transition-all duration-300 px-4 py-2" id="floatingMenu">
     <nav class="max-w-6xl mx-auto bg-black/90 backdrop-blur-md rounded-full border border-gray-800 shadow-xl">
         <div class="hidden md:flex items-center justify-between px-6 py-2">
             <img src="src/img/logo.PNG" alt="Logo" class="h-8 w-auto" loading="lazy">
@@ -70,8 +68,8 @@
         </div>
     </nav>
 
-    <div class="md:hidden transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none" id="mobileMenuContent">
-        <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-2">
+    <div class="md:hidden absolute w-full left-0 transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none" id="mobileMenuContent">
+        <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-2 mx-4">
             <div class="flex flex-col">
                 <a href="#home" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">Início</a>
                 <a href="#sobre" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">Sobre</a>
