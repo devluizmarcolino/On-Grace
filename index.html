@@ -3,49 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <title>On Grace | Uma casa para você</title>
+    <meta name="description" content="On Grace - Uma casa para você.">
+    <meta name="keywords" content="igreja, ongrace, church, igreja em vsa, vsa igreja, igreja em vitoria de santo antao">
+    <meta name="author" content="Voltare Tech">
+    
+    <meta property="og:title" content="On Grace | Uma casa para você">
+    <meta property="og:description" content="On Grace | Uma casa para você, uma igreja para todos.">
+    <meta property="og:site_name" content="Igreja On Grace">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://igrejaongrace.com">
+    <meta property="og:image" content="https://igrejaongrace.com/src/img/og-image.jpg">
+    
+    <link rel="shortcut icon" href="src/img/logo-cortada.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="src/img/logo-cortada.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preload" href="src/css/global.css" as="style">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/global.css">
-    <link rel="shortcut icon" href="src/img/logo-cortada.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <title>On Grace | Uma casa para você</title>
+    
+    <script defer src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "On Grace",
+      "description": "Uma casa para você.",
+      "image": "https://igrejaongrace.com/src/img/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
 </head>
 <body class="bg-[#f3eee7]">
 
-<header class="fixed left-1/2 top-6 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] md:w-auto" id="floatingMenu">
-    <nav class="bg-black/90 backdrop-blur-md rounded-full border border-gray-800 shadow-xl">
-        <div class="hidden md:flex items-center justify-between px-8 py-3">
-            <img src="src/img/logo.PNG" alt="Logo" class="h-8 w-auto mr-8">
-            <div class="flex items-center space-x-8">
-                <a href="#home" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Início</a>
-                <a href="#sobre" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Sobre</a>
-                <a href="#ministerios" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">Ministérios</a>
-                <a href="#gcs" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium">GCs</a>
-                <a href="oferta.html" class="bg-white text-black hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-all hover:scale-105">
+<header class="fixed left-0 top-0 w-full z-50 transition-all duration-300 px-4 py-2" id="floatingMenu">
+    <nav class="max-w-6xl mx-auto bg-black/90 backdrop-blur-md rounded-full border border-gray-800 shadow-xl">
+        <div class="hidden md:flex items-center justify-between px-6 py-2">
+            <img src="src/img/logo.PNG" alt="Logo" class="h-8 w-auto" loading="lazy">
+            <div class="flex items-center space-x-6">
+                <a href="#home" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium py-2 px-3">Início</a>
+                <a href="#sobre" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium py-2 px-3">Sobre</a>
+                <a href="#ministerios" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium py-2 px-3">Ministérios</a>
+                <a href="#gcs" class="text-white hover:text-gray-200 transition-all hover:scale-105 text-sm font-medium py-2 px-3">GCs</a>
+                <a href="oferta.html" class="bg-white text-black hover:bg-gray-100 px-5 py-2 rounded-full text-sm font-medium transition-all hover:scale-105">
                     Ofertar
                 </a>
             </div>
         </div>
 
-        <div class="md:hidden flex items-center justify-between px-5 py-2">
-            <img src="src/img/logo.PNG" alt="Logo" class="h-6 w-auto">
-            <button class="text-white focus:outline-none" id="mobileMenuBtn">
+        <div class="md:hidden flex items-center justify-between px-4 py-2">
+            <img src="src/img/logo.PNG" alt="Logo" class="h-7 w-auto" loading="lazy">
+            <button class="text-white p-2 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-lg" id="mobileMenuBtn">
                 <i class="ri-menu-line text-xl"></i>
             </button>
         </div>
     </nav>
 
     <div class="md:hidden transition-all duration-300 opacity-0 -translate-y-2 pointer-events-none" id="mobileMenuContent">
-        <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-4">
-            <div class="flex flex-col space-y-4 px-5">
-                <a href="#home" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Início</a>
-                <a href="#sobre" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Sobre</a>
-                <a href="#ministerios" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">Ministérios</a>
-                <a href="#gcs" class="text-white hover:text-gray-200 transition-colors py-2 hover:bg-white/10 rounded-lg px-4">GCs</a>
-                <a href="oferta.html" class="text-center bg-white text-black hover:bg-gray-100 px-5 py-2 rounded-full text-sm font-medium">
+        <div class="bg-black/90 backdrop-blur-md rounded-2xl border border-gray-800 shadow-xl mt-3 py-2">
+            <div class="flex flex-col">
+                <a href="#home" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">Início</a>
+                <a href="#sobre" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">Sobre</a>
+                <a href="#ministerios" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">Ministérios</a>
+                <a href="#gcs" class="text-white hover:bg-white/10 px-6 py-3 text-base font-medium">GCs</a>
+                <a href="oferta.html" class="m-4 text-center bg-white text-black hover:bg-gray-100 px-5 py-3 rounded-full text-base font-medium">
                     Ofertar
                 </a>
             </div>
@@ -56,57 +88,80 @@
 <main>
 
 <section class="relative h-screen w-full overflow-hidden" id="home">
-        <div class="absolute inset-0 gradient-overlay z-[1]"></div>
+    <!-- Overlay de gradiente -->
+    <div class="absolute inset-0 gradient-overlay z-[1]"></div>
 
-        <div class="carousel relative w-full h-full" id="carousel">
-            <div class="carousel-slide active">
-                <img src="src/img/img1.jpg" alt="Igreja 1" class="absolute top-0 left-0 w-full h-full object-cover">
-            </div>
-            <div class="carousel-slide">
-                <img src="src/img/img2.jpg" alt="Igreja 2" class="absolute top-0 left-0 w-full h-full object-cover">
-            </div>
-            <div class="carousel-slide">
-                <img src="src/img/img3.jpg" alt="Igreja 3" class="absolute top-0 left-0 w-full h-full object-cover">
-            </div>
+    <!-- Carousel principal -->
+    <div class="carousel relative w-full h-full" id="carousel">
+        <div class="carousel-slide active">
+            <img src="src/img/img1.jpg" alt="Igreja 1" class="absolute top-0 left-0 w-full h-full object-cover" loading="lazy">
         </div>
-        
-        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2]" id="prevBtn">
-            <i class="ri-arrow-left-s-line text-4xl"></i>
-        </button>
-        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2]" id="nextBtn">
-            <i class="ri-arrow-right-s-line text-4xl"></i>
-        </button>
+        <div class="carousel-slide">
+            <img src="src/img/img2.jpg" alt="Igreja 2" class="absolute top-0 left-0 w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="carousel-slide">
+            <img src="src/img/img3.jpg" alt="Igreja 3" class="absolute top-0 left-0 w-full h-full object-cover" loading="lazy">
+        </div>
+    </div>
+    
+    <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white active:text-white active:scale-110 transition-all z-[5] w-12 h-12 flex items-center justify-center touch-manipulation" id="prevBtn" aria-label="Slide anterior">
+        <i class="ri-arrow-left-s-line text-4xl"></i>
+    </button>
+    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white active:text-white active:scale-110 transition-all z-[5] w-12 h-12 flex items-center justify-center touch-manipulation" id="nextBtn" aria-label="Próximo slide">
+        <i class="ri-arrow-right-s-line text-4xl"></i>
+    </button>
 
-        <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-[2]" id="indicators">
-            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator active"></button>
-            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator"></button>
-            <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors indicator"></button>
-        </div>
-        
-        <div class="absolute inset-0 z-20 flex items-center justify-center px-4">
-            <div class="text-center max-w-sm md:max-w-md space-y-4">
-                <h1 class="text-2xl md:text-4xl font-bold text-white leading-tight">
-                    Encontre o seu lugar.
-                </h1>
-                
-                <p class="text-base text-gray-100 mx-auto font-light">
-                    Uma casa para você!
-                </p>
-                
-                <div class="flex flex-col gap-2 pt-2">
-                    <a href="#horarios" class="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all text-center no-underline button">
-                        Horários dos Cultos
+    <!-- Indicadores de slides -->
+    <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-4 z-[5]" id="indicators">
+        <button class="w-4 h-4 rounded-full bg-white/50 hover:bg-white active:scale-110 transition-all indicator active p-2 flex items-center justify-center" aria-label="Slide 1">
+            <span class="w-full h-full rounded-full bg-white/50 block"></span>
+        </button>
+        <button class="w-4 h-4 rounded-full bg-white/50 hover:bg-white active:scale-110 transition-all indicator p-2 flex items-center justify-center" aria-label="Slide 2">
+            <span class="w-full h-full rounded-full bg-white/50 block"></span>
+        </button>
+        <button class="w-4 h-4 rounded-full bg-white/50 hover:bg-white active:scale-110 transition-all indicator p-2 flex items-center justify-center" aria-label="Slide 3">
+            <span class="w-full h-full rounded-full bg-white/50 block"></span>
+        </button>
+    </div>
+    
+    <!-- Conteúdo central -->
+ <div class="absolute inset-0 flex items-center justify-center px-4" style="z-index: 100;">
+        <div class="text-center max-w-sm md:max-w-md space-y-5">
+            <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight">
+                Encontre o seu lugar.
+            </h1>
+            
+            <p class="text-base md:text-lg text-gray-100 mx-auto font-light">
+                Uma casa para você!
+            </p>
+            
+            <!-- Botões completamente reestruturados -->
+            <div style="margin-top: 20px; position: relative; z-index: 999;">
+                <!-- Primeiro botão com div externa -->
+                <div style="position: relative; margin-bottom: 20px; padding: 5px;">
+                    <a href="#horarios" 
+                       onclick="window.location.href='#horarios'; return true;" 
+                       style="display: block; background-color: white; color: black; padding: 16px 24px; border-radius: 9999px; font-size: 18px; font-weight: 500; text-align: center; text-decoration: none; position: relative; z-index: 999;">
+                       Horários dos Cultos
                     </a>
-                    <a href="#sobre" class="bg-transparent border border-white text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-all text-center no-underline button">
-                        Saiba Mais
+                </div>
+                
+                <!-- Segundo botão com div externa -->
+                <div style="position: relative; padding: 5px;">
+                    <a href="#sobre" 
+                       onclick="window.location.href='#sobre'; return true;" 
+                       style="display: block; background-color: transparent; border: 2px solid white; color: white; padding: 16px 24px; border-radius: 9999px; font-size: 18px; font-weight: 500; text-align: center; text-decoration: none; position: relative; z-index: 999;">
+                       Saiba Mais
                     </a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-[2]">
-            <i class="ri-arrow-down-line text-3xl"></i>
-        </div>
+    <!-- Indicador de rolagem -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-[2]">
+        <i class="ri-arrow-down-line text-3xl"></i>
+    </div>
 </section>
 
 <section class="py-16 px-4">
