@@ -1,422 +1,260 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const mobileMenuContent = document.getElementById("mobileMenuContent");
-  const menuIcon = mobileMenuBtn.querySelector("i");
-
-  let isMenuOpen = false;
-
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
-
-    menuIcon.className = isMenuOpen
-      ? "ri-close-line text-xl"
-      : "ri-menu-line text-xl";
-
-    mobileMenuContent.style.opacity = isMenuOpen ? "1" : "0";
-    mobileMenuContent.style.transform = isMenuOpen
-      ? "translateY(0)"
-      : "translateY(-8px)";
-    mobileMenuContent.style.pointerEvents = isMenuOpen ? "auto" : "none";
+  const e = document.getElementById("mobileMenuBtn"),
+    t = document.getElementById("mobileMenuContent"),
+    n = e.querySelector("i");
+  let o = !1;
+  function i() {
+    (o = !o),
+      (n.className = o ? "ri-close-line text-xl" : "ri-menu-line text-xl"),
+      (t.style.opacity = o ? "1" : "0"),
+      (t.style.transform = o ? "translateY(0)" : "translateY(-8px)"),
+      (t.style.pointerEvents = o ? "auto" : "none");
   }
-
-  mobileMenuBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    toggleMenu();
-  });
-
-  document.addEventListener("click", function (e) {
-    if (
-      isMenuOpen &&
-      !mobileMenuContent.contains(e.target) &&
-      !mobileMenuBtn.contains(e.target)
-    ) {
-      toggleMenu();
-    }
-  });
+  e.addEventListener("click", function (e) {
+    e.stopPropagation(), i();
+  }),
+    document.addEventListener("click", function (e) {
+      o && !t.contains(e.target) && !e.contains(e.target) && i();
+    });
 });
-
-const carousel = document.getElementById("carousel");
-const slides = document.querySelectorAll(".carousel-slide");
-const indicators = document.querySelectorAll(".indicator");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const carousel = document.getElementById("carousel"),
+  slides = document.querySelectorAll(".carousel-slide"),
+  indicators = document.querySelectorAll(".indicator"),
+  prevBtn = document.getElementById("prevBtn"),
+  nextBtn = document.getElementById("nextBtn");
 let currentSlide = 0;
-
-function showSlide(index) {
-  slides.forEach((slide) => slide.classList.remove("active"));
-  indicators.forEach((indicator) =>
-    indicator.classList.remove("bg-white", "bg-white/50")
-  );
-
-  slides[index].classList.add("active");
-  indicators[index].classList.add("bg-white");
-
-  currentSlide = index;
+function showSlide(e) {
+  slides.forEach((e) => e.classList.remove("active")),
+    indicators.forEach((e) => e.classList.remove("bg-white", "bg-white/50")),
+    slides[e].classList.add("active"),
+    indicators[e].classList.add("bg-white"),
+    (currentSlide = e);
 }
-
 function nextSlide() {
-  const next = (currentSlide + 1) % slides.length;
-  showSlide(next);
+  showSlide((currentSlide + 1) % slides.length);
 }
-
 function prevSlide() {
-  const prev = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(prev);
+  showSlide((currentSlide - 1 + slides.length) % slides.length);
 }
-
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
-
-indicators.forEach((indicator, index) => {
-  indicator.addEventListener("click", () => showSlide(index));
-});
-
-setInterval(nextSlide, 3000);
-
-showSlide(0);
-
 function atualizarProximoCulto() {
-  const agora = new Date();
-  let proximoCulto = new Date();
-
-  const diaSemanaAtual = agora.getDay();
-
-  let diasAteQuarta = 3 - diaSemanaAtual;
-  if (diasAteQuarta <= 0) diasAteQuarta += 7;
-  const proxQuarta = new Date(agora);
-  proxQuarta.setDate(agora.getDate() + diasAteQuarta);
-  proxQuarta.setHours(19, 30, 0, 0);
-
-  let diasAteDomingo = 0 - diaSemanaAtual;
-  if (diasAteDomingo <= 0) diasAteDomingo += 7;
-  const proxDomingo = new Date(agora);
-  proxDomingo.setDate(agora.getDate() + diasAteDomingo);
-  proxDomingo.setHours(18, 0, 0, 0);
-
-  if (
-    diaSemanaAtual === 3 &&
-    agora < proxQuarta.getTime() - 7 * 24 * 60 * 60 * 1000
-  ) {
-    proxQuarta.setDate(proxQuarta.getDate() - 7);
-  }
-
-  if (
-    diaSemanaAtual === 0 &&
-    agora < proxDomingo.getTime() - 7 * 24 * 60 * 60 * 1000
-  ) {
-    proxDomingo.setDate(proxDomingo.getDate() - 7);
-  }
-
-  if (proxQuarta < proxDomingo) {
-    proximoCulto = proxQuarta;
-    document.getElementById("proximo-dia").textContent = "Quarta-feira, 19:30";
-    document.getElementById("tipo-culto").textContent =
-      "Culto de estudos doutrinários";
-  } else {
-    proximoCulto = proxDomingo;
-    document.getElementById("proximo-dia").textContent = "Domingo, 18:00";
-    document.getElementById("tipo-culto").textContent = "Culto Evangelístico";
-  }
-
-  if (proximoCulto < agora) {
-    if (proximoCulto === proxQuarta) {
-      proximoCulto = proxDomingo;
-      document.getElementById("proximo-dia").textContent = "Domingo, 18:00";
-      document.getElementById("tipo-culto").textContent = "Culto Evangelístico";
-    } else {
-      proximoCulto = new Date(proxQuarta);
-      document.getElementById("proximo-dia").textContent =
-        "Quarta-feira, 19:30";
-      document.getElementById("tipo-culto").textContent =
-        "Culto de estudos doutrinários";
-    }
-  }
-
-  return proximoCulto;
+  const e = new Date();
+  let t = new Date();
+  const n = e.getDay();
+  let o = 3 - n;
+  o <= 0 && (o += 7);
+  const i = new Date(e);
+  i.setDate(e.getDate() + o), i.setHours(19, 30, 0, 0);
+  let r = 0 - n;
+  r <= 0 && (r += 7);
+  const a = new Date(e);
+  return (
+    a.setDate(e.getDate() + r),
+    a.setHours(18, 0, 0, 0),
+    3 === n && e < i.getTime() - 6048e5 && i.setDate(i.getDate() - 7),
+    0 === n && e < a.getTime() - 6048e5 && a.setDate(a.getDate() - 7),
+    i < a
+      ? ((t = i),
+        (document.getElementById("proximo-dia").textContent =
+          "Quarta-feira, 19:30"),
+        (document.getElementById("tipo-culto").textContent =
+          "Culto de estudos doutrinários"))
+      : ((t = a),
+        (document.getElementById("proximo-dia").textContent = "Domingo, 18:00"),
+        (document.getElementById("tipo-culto").textContent =
+          "Culto Evangelístico")),
+    t < e &&
+      (t === i
+        ? ((t = a),
+          (document.getElementById("proximo-dia").textContent =
+            "Domingo, 18:00"),
+          (document.getElementById("tipo-culto").textContent =
+            "Culto Evangelístico"))
+        : ((t = new Date(i)),
+          (document.getElementById("proximo-dia").textContent =
+            "Quarta-feira, 19:30"),
+          (document.getElementById("tipo-culto").textContent =
+            "Culto de estudos doutrinários"))),
+    t
+  );
 }
-
 function atualizarCountdown() {
-  const proximoCulto = atualizarProximoCulto();
-  const agora = new Date();
-
-  const diff = proximoCulto - agora;
-
-  if (diff <= 0) {
-    document.getElementById("countdown").textContent = "Acontecendo agora!";
-    setTimeout(atualizarCountdown, 60000);
-    return;
-  }
-
-  const horas = Math.floor(diff / (1000 * 60 * 60));
-  const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-
-  const horasFormatadas = String(horas).padStart(2, "0");
-  const minutosFormatados = String(minutos).padStart(2, "0");
-  const segundosFormatados = String(segundos).padStart(2, "0");
-
-  document.getElementById(
-    "countdown"
-  ).textContent = `${horasFormatadas}:${minutosFormatados}:${segundosFormatados} horas`;
-
-  setTimeout(atualizarCountdown, 1000);
+  const e = atualizarProximoCulto(),
+    t = new Date(),
+    n = e - t;
+  if (n <= 0)
+    return (
+      (document.getElementById("countdown").textContent = "Acontecendo agora!"),
+      void setTimeout(atualizarCountdown, 6e4)
+    );
+  const o = Math.floor(n / 36e5),
+    i = Math.floor((n % 36e5) / 6e4),
+    r = Math.floor((n % 6e4) / 1e3),
+    a = String(o).padStart(2, "0"),
+    s = String(i).padStart(2, "0"),
+    c = String(r).padStart(2, "0");
+  (document.getElementById("countdown").textContent = `${a}:${s}:${c} horas`),
+    setTimeout(atualizarCountdown, 1e3);
 }
-
-document.addEventListener("DOMContentLoaded", atualizarCountdown);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('popupComoChegar');
-    const botaoFechar = document.getElementById('fecharPopup');
-    const videoFrame = document.getElementById('videoComoChegar');
-    
-    const videoUrl =
-      "https://www.youtube.com/embed/sassasas";
-    
-    function abrirPopup() {
-        videoFrame.src = videoUrl;
-        popup.classList.remove('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = 'hidden';
+function initCarouselGC(e) {
+  const t = document.querySelector(e);
+  if (!t) return;
+  const n = t.querySelectorAll(".carousel-slide-gc");
+  let o = 0;
+  function i(e) {
+    n.forEach((t, n) => {
+      n === e
+        ? (t.classList.add("active"),
+          (t.style.opacity = "1"),
+          (t.style.transform = "translateX(0)"))
+        : (t.classList.remove("active"),
+          (t.style.opacity = "0"),
+          (t.style.transform = "translateX(100%)"));
+    });
+  }
+  function r() {
+    (o = (o + 1) % n.length), i(o);
+  }
+  function a() {
+    (o = (o - 1 + n.length) % n.length), i(o);
+  }
+  const s = document.createElement("button");
+  (s.className =
+    "absolute left-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full"),
+    (s.innerHTML = '<i class="ri-arrow-left-s-line text-xl"></i>'),
+    t.appendChild(s);
+  const c = document.createElement("button");
+  (c.className =
+    "absolute right-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full"),
+    (c.innerHTML = '<i class="ri-arrow-right-s-line text-xl"></i>'),
+    t.appendChild(c),
+    s.addEventListener("click", a),
+    c.addEventListener("click", r);
+  let l = 0,
+    d = 0;
+  t.addEventListener("touchstart", (e) => {
+    l = e.changedTouches[0].screenX;
+  }),
+    t.addEventListener("touchend", (e) => {
+      (d = e.changedTouches[0].screenX), l - d > 50 ? r() : d - l > 50 && a();
+    });
+  let u = setInterval(r, 5e3);
+  t.addEventListener("mouseenter", () => {
+    clearInterval(u);
+  }),
+    t.addEventListener("mouseleave", () => {
+      u = setInterval(r, 5e3);
+    }),
+    n.forEach((e, t) => {
+      0 === t
+        ? ((e.style.opacity = "1"), (e.style.transform = "translateX(0)"))
+        : ((e.style.opacity = "0"), (e.style.transform = "translateX(100%)")),
+        (e.style.transition = "all 0.5s ease"),
+        (e.style.position = "absolute"),
+        (e.style.top = "0"),
+        (e.style.left = "0"),
+        (e.style.width = "100%"),
+        (e.style.height = "100%");
+    });
+}
+nextBtn.addEventListener("click", nextSlide),
+  prevBtn.addEventListener("click", prevSlide),
+  indicators.forEach((e, t) => {
+    e.addEventListener("click", () => showSlide(t));
+  }),
+  setInterval(nextSlide, 3e3),
+  showSlide(0),
+  document.addEventListener("DOMContentLoaded", atualizarCountdown),
+  document.addEventListener("DOMContentLoaded", function () {
+    const e = document.getElementById("popupComoChegar"),
+      t = document.getElementById("fecharPopup"),
+      n = document.getElementById("videoComoChegar"),
+      o = "https://www.youtube.com/embed/sassasas";
+    function i() {
+      (n.src = o),
+        e.classList.remove("opacity-0", "pointer-events-none"),
+        (document.body.style.overflow = "hidden");
     }
-    
-    function fecharPopup() {
-        popup.classList.add('opacity-0', 'pointer-events-none');
+    function r() {
+      e.classList.add("opacity-0", "pointer-events-none"),
         setTimeout(() => {
-            videoFrame.src = ''; 
-        }, 300);
-        document.body.style.overflow = '';
+          n.src = "";
+        }, 300),
+        (document.body.style.overflow = "");
     }
-    
-    const botoesComoChegar = Array.from(document.querySelectorAll('button')).filter(botao => {
-        return botao.textContent.trim() === 'Como Chegar';
-    });
-    
-    if (botoesComoChegar.length > 0) {
-        botoesComoChegar.forEach(botao => {
-            botao.addEventListener('click', abrirPopup);
-        });
-    } else {
-        console.error('Botão "Como Chegar" não encontrado');
-    }
-    
-    if (botaoFechar) {
-        botaoFechar.addEventListener('click', fecharPopup);
-    } else {
-        console.error('Botão de fechar popup não encontrado');
-    }
-    
-    popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            fecharPopup();
+    const a = Array.from(document.querySelectorAll("button")).filter(
+      (e) => "Como Chegar" === e.textContent.trim()
+    );
+    a.length > 0
+      ? a.forEach((e) => {
+          e.addEventListener("click", i);
+        })
+      : console.error('Botão "Como Chegar" não encontrado'),
+      t
+        ? t.addEventListener("click", r)
+        : console.error("Botão de fechar popup não encontrado"),
+      e.addEventListener("click", function (t) {
+        t.target === e && r();
+      }),
+      document.addEventListener("keydown", function (t) {
+        "Escape" === t.key && !e.classList.contains("opacity-0") && r();
+      }),
+      console.log(`Encontrados ${a.length} botões "Como Chegar"`);
+  }),
+  document.addEventListener("DOMContentLoaded", function () {
+    const e = document.querySelector("[data-share-horarios]"),
+      t = document.getElementById("horarios-compartilhar");
+    e &&
+      t &&
+      e.addEventListener("click", async function () {
+        try {
+          const e = document.createElement("div");
+          (e.style.position = "fixed"),
+            (e.style.top = "0"),
+            (e.style.left = "0"),
+            (e.style.zIndex = "-9999"),
+            (e.style.width = "600px"),
+            (e.style.height = "400px"),
+            (e.innerHTML =
+              '\n                <div class="w-[600px] h-[400px] bg-white p-8 rounded-xl" style="font-family: \'Poppins\', sans-serif; background-color: #FFFFFF;">\n                    <div class="h-full flex flex-col items-center justify-between relative rounded-lg overflow-hidden" style="background-color: #000000;">\n                        <div style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.6);"></div>\n                        \n                        <div style="position: relative; z-index: 10; text-align: center; padding-top: 2rem;">\n                            <h2 style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Horários dos Cultos</h2>\n                            <p style="color: #D1D5DB;">Uma casa para você!</p>\n                        </div>\n                        \n                        <div style="position: relative; z-index: 10; text-align: center; padding-bottom: 2rem;">\n                            <div style="margin-bottom: 1.5rem;">\n                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Domingo - 18h</h3>\n                                <p style="color: #D1D5DB;">Culto Evangelístico</p>\n                            </div>\n                            \n                            <div style="margin-bottom: 1.5rem;">\n                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Quarta - 19h30</h3>\n                                <p style="color: #D1D5DB;">Culto de Estudos Doutrinários</p>\n                            </div>\n                            \n                            <div style="font-size: 14px; color: #D1D5DB; margin-top: 1rem;">\n                                <p>Rua Educador Marcos Antônio da Silva, 75</p>\n                                <p>Cajá, Vitória de Santo Antão, PE</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            '),
+            document.body.appendChild(e),
+            await new Promise((e) => setTimeout(e, 100));
+          const t = await html2canvas(e, {
+              scale: 2,
+              logging: !1,
+              backgroundColor: "#FFFFFF",
+            }),
+            n = await new Promise((e) => t.toBlob(e, "image/png", 1));
+          if (!n) throw new Error("Falha ao gerar imagem");
+          const o = new File([n], "horarios-ongrace.png", {
+            type: "image/png",
+          });
+          if (navigator.share && navigator.canShare({ files: [o] }))
+            await navigator.share({
+              title: "Horários dos Cultos - On Grace",
+              text: "Confira os horários dos nossos cultos!",
+              files: [o],
+            });
+          else {
+            const e = document.createElement("a");
+            (e.href = t.toDataURL("image/png")),
+              (e.download = "horarios-ongrace.png"),
+              document.body.appendChild(e),
+              e.click(),
+              document.body.removeChild(e);
+          }
+          document.body.removeChild(e);
+        } catch (e) {
+          console.error("Erro ao compartilhar:", e),
+            alert(
+              "Não foi possível compartilhar os horários. Por favor, tente novamente."
+            );
         }
-    });
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && !popup.classList.contains('opacity-0')) {
-            fecharPopup();
-        }
-    });
-        
-
-    console.log(`Encontrados ${botoesComoChegar.length} botões "Como Chegar"`);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const shareButton = document.querySelector("[data-share-horarios]");
-  const horariosElement = document.getElementById("horarios-compartilhar");
-
-  if (!shareButton || !horariosElement) {
-    console.error("Elementos não encontrados");
-    return;
-  }
-
-  async function shareHorarios() {
-    try {
-      const tempDiv = document.createElement("div");
-      tempDiv.style.position = "fixed";
-      tempDiv.style.top = "0";
-      tempDiv.style.left = "0";
-      tempDiv.style.zIndex = "-9999";
-      tempDiv.style.width = "600px";
-      tempDiv.style.height = "400px";
-      tempDiv.innerHTML = `
-                <div class="w-[600px] h-[400px] bg-white p-8 rounded-xl" style="font-family: 'Poppins', sans-serif; background-color: #FFFFFF;">
-                    <div class="h-full flex flex-col items-center justify-between relative rounded-lg overflow-hidden" style="background-color: #000000;">
-                        <div style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.6);"></div>
-                        
-                        <div style="position: relative; z-index: 10; text-align: center; padding-top: 2rem;">
-                            <h2 style="font-size: 24px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Horários dos Cultos</h2>
-                            <p style="color: #D1D5DB;">Uma casa para você!</p>
-                        </div>
-                        
-                        <div style="position: relative; z-index: 10; text-align: center; padding-bottom: 2rem;">
-                            <div style="margin-bottom: 1.5rem;">
-                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Domingo - 18h</h3>
-                                <p style="color: #D1D5DB;">Culto Evangelístico</p>
-                            </div>
-                            
-                            <div style="margin-bottom: 1.5rem;">
-                                <h3 style="font-size: 20px; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Quarta - 19h30</h3>
-                                <p style="color: #D1D5DB;">Culto de Estudos Doutrinários</p>
-                            </div>
-                            
-                            <div style="font-size: 14px; color: #D1D5DB; margin-top: 1rem;">
-                                <p>Rua Educador Marcos Antônio da Silva, 75</p>
-                                <p>Cajá, Vitória de Santo Antão, PE</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-      document.body.appendChild(tempDiv);
-
-      await new Promise((resolve) => setTimeout(resolve, 100));
-
-      const canvas = await html2canvas(tempDiv, {
-        scale: 2,
-        logging: false,
-        backgroundColor: "#FFFFFF",
       });
-
-      const blob = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/png", 1.0)
-      );
-
-      if (!blob) {
-        throw new Error("Falha ao gerar imagem");
-      }
-
-      const file = new File([blob], "horarios-ongrace.png", {
-        type: "image/png",
-      });
-
-      if (navigator.share && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          title: "Horários dos Cultos - On Grace",
-          text: "Confira os horários dos nossos cultos!",
-          files: [file],
-        });
-      } else {
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = "horarios-ongrace.png";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-
-      document.body.removeChild(tempDiv);
-    } catch (error) {
-      console.error("Erro ao compartilhar:", error);
-      alert(
-        "Não foi possível compartilhar os horários. Por favor, tente novamente."
-      );
-    }
-  }
-
-  shareButton.addEventListener("click", shareHorarios);
-});
-
-function initCarouselGC(carouselClass) {
-    const carousel = document.querySelector(carouselClass);
-    if (!carousel) return;
-
-    const slides = carousel.querySelectorAll('.carousel-slide-gc');
-    let currentSlide = 0;
-    
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-                slide.style.opacity = '1';
-                slide.style.transform = 'translateX(0)';
-            } else {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.transform = 'translateX(100%)';
-            }
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function previousSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    const prevButton = document.createElement('button');
-    prevButton.className = 'absolute left-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full';
-    prevButton.innerHTML = '<i class="ri-arrow-left-s-line text-xl"></i>';
-    carousel.appendChild(prevButton);
-
-    const nextButton = document.createElement('button');
-    nextButton.className = 'absolute right-2 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[2] bg-black/30 hover:bg-black/50 p-1 rounded-full';
-    nextButton.innerHTML = '<i class="ri-arrow-right-s-line text-xl"></i>';
-    carousel.appendChild(nextButton);
-
-    prevButton.addEventListener('click', previousSlide);
-    nextButton.addEventListener('click', nextSlide);
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) {
-            nextSlide();
-        } else if (touchEndX - touchStartX > 50) {
-            previousSlide();
-        }
-    });
-
-    let autoplayInterval = setInterval(nextSlide, 5000);
-
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoplayInterval);
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-        autoplayInterval = setInterval(nextSlide, 5000);
-    });
-
-    slides.forEach((slide, index) => {
-        if (index === 0) {
-            slide.style.opacity = '1';
-            slide.style.transform = 'translateX(0)';
-        } else {
-            slide.style.opacity = '0';
-            slide.style.transform = 'translateX(100%)';
-        }
-        slide.style.transition = 'all 0.5s ease';
-        slide.style.position = 'absolute';
-        slide.style.top = '0';
-        slide.style.left = '0';
-        slide.style.width = '100%';
-        slide.style.height = '100%';
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initCarouselGC('.carousel-gc-obras');
-        initCarouselGC('.carousel-gc-casais');
-});
-
-const styleGC = document.createElement('style');
-styleGC.textContent = `
-    .carousel-slide-gc {
-        display: none;
-    }
-    
-    .carousel-slide-gc.active {
-        display: block;
-    }
-`;
-document.head.appendChild(styleGC);
+  }),
+  document.addEventListener("DOMContentLoaded", () => {
+    initCarouselGC(".carousel-gc-obras"), initCarouselGC(".carousel-gc-casais");
+  });
+const styleGC = document.createElement("style");
+(styleGC.textContent =
+  "\n    .carousel-slide-gc {\n        display: none;\n    }\n    \n    .carousel-slide-gc.active {\n        display: block;\n    }\n"),
+  document.head.appendChild(styleGC);
